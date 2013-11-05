@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <title>Flot Examples: Series Types</title>
+   <link href="examples.css" rel="stylesheet" type="text/css">
+   <!--[if lte IE 8]><script language="javascript" 
+     type="text/javascript" src="assets/js/excanvas.min.js">
+  </script><![endif]-->
+
+   <script language="javascript" type="text/javascript" 
+     src="assets/js/jquery.js"></script>
+
+   <script language="javascript" type="text/javascript" 
+    src="assets/js/jquery.flot.min.js"></script>
+
+   <script language="javascript" type="text/javascript" 
+    src="assets/js/jquery.flot.categories.min.js"></script>
+
+    <script type="text/javascript">
+
+     $(function() {
+       var d1 = [[0, 3], [4, 8], [8, 5], [9, 13]]
+
+       var data = [["Cohort Total", 396], ["Reached 1", 0], ["Reached 2", 0], 
+        ["Reached 3", 396],
+        ["OSY", 0], ["ISY", 0], ["PLWHA", 0], ["MSM", 0], ["IDUs", 0], 
+        ["TWKersM", 396], ["CSWM", 0], ["USMM", 0], ["Others", 0]];
+
+       var data2 = [["Cohort Total", 542], ["Reached 1", 0], ["Reached 2", 0], 
+        ["Reached 3", 542],
+        ["OSY", 0], ["ISY", 0], ["PLWHA", 0], ["MSM", 0], ["IDUs", 0], 
+        ["TWKersM", 1], ["CSWM", 541], ["USMM", 0], ["Others", 0]];
+
+       $.plot("#placeholder", [data, data2], {
+         series: {
+           stack: true,
+           bars: { 
+             show: true,
+             barWidth: 0.6,
+             align: "center" 
+           }
+         },
+         xaxis: {
+           mode: "categories",
+           tickLength: 0
+         }
+       });
+
+       // Add the Flot version string to the footer
+       $("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
+     });
+   </script>
+ </head>
+ <body>
+  <div id="header">
+   <h2>PITT Reporting Data Sheet</h2>
+  </div>
+
+	<div id="content">
+
+		<div class="demo-container">
+			<div id="placeholder" class="demo-placeholder"></div>
+		</div>
+
+		<p>Flot supports lines, points, filled areas, bars and any combinations of these, in the same plot and even on the same data series.</p>
+
+	</div>
+
+	<div id="footer">
+		Copyright &copy; 2007 - 2013 IOLA and Ole Laursen
+	</div>
+
+</body>
+</html>
